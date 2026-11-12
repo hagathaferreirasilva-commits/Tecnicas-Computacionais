@@ -1,0 +1,812 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+:root {
+    --background: #c887fd;
+    --surface: #10162a;
+    --surface-light: #ae00ff;
+    --surface-hover: #c95efa;
+
+    --primary: #8175ff;
+    --primary-light: #a49aff;
+    --secondary: #42d9e8;
+
+    --text: #f1f2ff;
+    --text-muted: #929bb7;
+    --text-dim: #68728e;
+
+    --border: rgb(234, 0, 255);
+    --border-active: rgb(167, 160, 247);
+
+    --gradient: linear-gradient(120deg, #8175ff, #42d9e8);
+
+    --radius: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 35px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(ellipse at 10% 10%, rgba(129, 117, 255, 0.13), transparent 35%),
+        radial-gradient(ellipse at 90% 85%, rgba(66, 217, 232, 0.09), transparent 35%),
+        var(--background);
+}
+
+/* ========================================
+   ESTRUTURA PRINCIPAL
+======================================== */
+
+.caixa-principal {
+    position: relative;
+
+    width: 100%;
+    max-width: 1050px;
+    min-height: 680px;
+
+    padding: 32px 45px 22px;
+
+    background: rgba(195, 0, 255, 0.94);
+
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    box-shadow:
+        0 30px 90px rgba(174, 0, 255, 0.692),
+        0 0 60px rgb(135, 124, 252);
+
+    overflow: hidden;
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca-icone {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgb(129, 117, 255);
+    border: 1px solid rgb(181, 117, 255);
+    border-radius: 13px;
+
+    color: var(--primary-light);
+}
+
+.marca-icone svg {
+    width: 25px;
+    height: 25px;
+}
+
+.marca-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.marca-nome {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.marca-descricao {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+    color: var(--text-dim);
+}
+
+.status-projeto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: var(--secondary);
+
+    background: rgb(66, 171, 232);
+    border: 1px solid rgb(66, 218, 232);
+    border-radius: 30px;
+}
+
+.status-ponto,
+.etiqueta-ponto,
+.legenda-ponto {
+    width: 7px;
+    height: 7px;
+
+    display: inline-block;
+
+    background: var(--secondary);
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px var(--secondary);
+}
+
+/* ========================================
+   TELA INICIAL
+======================================== */
+
+.tela-inicial {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 30px;
+
+    padding: 65px 0 55px;
+}
+
+.conteudo-intro {
+    max-width: 560px;
+}
+
+.etiqueta-intro {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 23px;
+
+    color: var(--secondary);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.titulo-jogo {
+    display: block;
+
+    max-width: 540px;
+    margin-bottom: 22px;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -2px;
+
+    color: var(--text);
+}
+
+.titulo-jogo span {
+    display: block;
+
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.descricao-intro {
+    max-width: 440px;
+
+    margin-bottom: 30px;
+
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+button {
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.iniciar-btn,
+.novamente-btn {
+    min-height: 52px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    padding: 0 25px;
+
+    color: #fff;
+    background: var(--gradient);
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    box-shadow: 0 8px 25px rgb(129, 117, 255);
+}
+
+.iniciar-btn svg,
+.novamente-btn svg {
+    width: 19px;
+    height: 19px;
+}
+
+.iniciar-btn:hover,
+.novamente-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 30px rgb(129, 117, 255);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 4px;
+}
+
+/* ========================================
+   INFORMAÇÕES DA INTRODUÇÃO
+======================================== */
+
+.intro-informacoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    margin-top: 43px;
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.info-numero {
+    color: var(--primary-light);
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.info-item span:last-child {
+    color: var(--text-dim);
+    font-size: 10px;
+}
+
+/* ========================================
+   PAINEL VISUAL
+======================================== */
+
+.painel-visual {
+    position: relative;
+
+    min-height: 360px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-circulo {
+    position: absolute;
+
+    border: 1px solid rgb(129, 117, 255);
+    border-radius: 50%;
+}
+
+.circulo-externo {
+    width: 310px;
+    height: 310px;
+
+    border-style: dashed;
+
+    animation: girar 45s linear infinite;
+}
+
+.circulo-medio {
+    width: 235px;
+    height: 235px;
+
+    border-color: rgba(66, 218, 232, 0.788);
+}
+
+.circulo-interno {
+    width: 160px;
+    height: 160px;
+
+    background: radial-gradient(
+        circle,
+        rgb(12, 2, 121),
+        rgb(13, 0, 155)
+    );
+
+    box-shadow: 0 0 55px rgb(129, 117, 255);
+}
+
+.visual-centro {
+    position: relative;
+    z-index: 2;
+
+    width: 115px;
+    height: 115px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--secondary);
+
+    filter: drop-shadow(0 0 12px rgba(66, 217, 232, 0.35));
+}
+
+.visual-centro svg {
+    width: 100%;
+    height: 100%;
+}
+
+.visual-legenda {
+    position: absolute;
+    bottom: 5px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--text-muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+.legenda-ponto {
+    width: 6px;
+    height: 6px;
+}
+
+.visual-coordenada {
+    position: absolute;
+
+    color: var(--text-dim);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.coordenada-topo {
+    top: 12px;
+    right: 0;
+}
+
+.coordenada-base {
+    bottom: 32px;
+    left: 0;
+}
+
+/* ========================================
+   PROGRESSO
+======================================== */
+
+.caixa-progresso {
+    width: 100%;
+    margin: 10px 0 35px;
+}
+
+.progresso-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.progresso-percentual {
+    color: var(--secondary);
+}
+
+.barra-progresso {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    background: var(--surface-light);
+    border-radius: 20px;
+}
+
+.progresso-preenchimento {
+    width: 0%;
+    height: 100%;
+
+    background: var(--gradient);
+    border-radius: 20px;
+
+    transition: width 0.45s ease;
+}
+
+/* ========================================
+   ÁREA DAS PERGUNTAS
+======================================== */
+
+.area-jogo {
+    width: 100%;
+}
+
+.caixa-perguntas {
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+
+    margin: 20px 0 25px;
+    padding: 25px 28px;
+
+    background: rgba(129, 117, 255, 0.07);
+
+    border: 1px solid rgba(129, 117, 255, 0.2);
+    border-left: 4px solid var(--primary);
+
+    border-radius: 12px;
+
+    color: var(--text);
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.caixa-alternativas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.caixa-alternativas button {
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 18px 20px;
+
+    background: var(--surface-light);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.6;
+
+    text-align: left;
+}
+
+.caixa-alternativas button:hover {
+    background: var(--surface-hover);
+
+    border-color: var(--border-active);
+
+    color: var(--text);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   RESULTADO FINAL
+======================================== */
+
+.caixa-resultado {
+    display: none;
+
+    margin-top: 30px;
+    padding: 35px 25px;
+
+    background: rgba(129, 117, 255, 0.05);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    text-align: center;
+
+    animation: aparecer 0.5s ease forwards;
+}
+
+.caixa-resultado.mostrar {
+    display: block;
+}
+
+.resultado-icone {
+    width: 65px;
+    height: 65px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 20px;
+
+    color: var(--secondary);
+
+    background: rgba(66, 217, 232, 0.09);
+
+    border: 1px solid rgba(66, 217, 232, 0.2);
+    border-radius: 20px;
+}
+
+.resultado-icone svg {
+    width: 32px;
+    height: 32px;
+}
+
+.resultado-etiqueta {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--secondary);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.texto-resultado {
+    margin-bottom: 25px;
+    padding: 24px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    text-align: left;
+}
+
+.novamente-btn {
+    margin: 0 auto;
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-dim);
+
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+}
+
+/* ========================================
+   ANIMAÇÕES
+======================================== */
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 760px) {
+
+    body {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    .caixa-principal {
+        min-height: auto;
+        padding: 25px 22px 20px;
+        border-radius: 18px;
+    }
+
+    .tela-inicial {
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        padding: 45px 0 35px;
+    }
+
+    .titulo-jogo {
+        font-size: clamp(2.4rem, 9vw, 3.5rem);
+    }
+
+    .painel-visual {
+        min-height: 300px;
+    }
+
+    .circulo-externo {
+        width: 260px;
+        height: 260px;
+    }
+
+    .circulo-medio {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circulo-interno {
+        width: 135px;
+        height: 135px;
+    }
+
+    .visual-centro {
+        width: 95px;
+        height: 95px;
+    }
+
+    .intro-informacoes {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cabecalho {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .marca-icone {
+        width: 37px;
+        height: 37px;
+    }
+
+    .marca-nome {
+        font-size: 14px;
+    }
+
+    .marca-descricao {
+        font-size: 8px;
+    }
+
+    .status-projeto {
+        padding: 8px 9px;
+        font-size: 8px;
+    }
+
+    .titulo-jogo {
+        font-size: 2.45rem;
+        letter-spacing: -1.5px;
+    }
+
+    .descricao-intro {
+        font-size: 14px;
+    }
+
+    .intro-informacoes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .caixa-alternativas {
+        grid-template-columns: 1fr;
+    }
+
+    .caixa-perguntas {
+        padding: 20px;
+        font-size: 18px;
+    }
+
+    .rodape {
+        flex-direction: column;
+        align-items: flex-start;
+
+        font-size: 8px;
+    }
+
+    .visual-coordenada {
+        font-size: 8px;
+    }
+}
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
